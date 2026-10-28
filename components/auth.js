@@ -27,7 +27,7 @@ function renderAuthModule() {
             <div class="flex flex-col gap-4 text-sm">
                 <div>
                     <label class="block text-xs text-slate-400 font-bold mb-1 uppercase tracking-wider">Email Address</label>
-                    <input type="email" id="auth-email" placeholder="sudhir@example.com" class="auth-input">
+                    <input type="email" id="auth-email" placeholder="name@company.com" class="auth-input">
                 </div>
                 
                 <div>

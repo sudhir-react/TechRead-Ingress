@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechRead Ingress v4.0 | Premium Architecture Hub</title>
-    <!-- Lucide High-Signal Icons Core (Fixed Absolute Links) -->
+    <!-- Lucide Icons and Supabase Core CDN Fixed Assets -->
     <script src="https://jsdelivr.net"></script>
-    <!-- Supabase Client JavaScript Engine Core (Fixed Absolute Links) -->
     <script src="https://jsdelivr.net"></script>
     <style>
         :root {
@@ -31,7 +30,7 @@
 
         .track-navigator { max-width: 1400px; margin: 2.5rem auto 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.75rem; position: relative; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .track-card { cursor: pointer; display: flex; align-items: center; gap: 125rem; gap: 1.25rem; }
+        .track-card { cursor: pointer; display: flex; align-items: center; gap: 1.25rem; }
         .track-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-2px); }
         .track-card.active { border-color: var(--neon-sky); box-shadow: 0 0 25px rgba(56, 189, 248, 0.2), inset 0 0 12px rgba(56, 189, 248, 0.1); }
         .track-icon { background: rgba(56, 189, 248, 0.1); color: var(--neon-sky); width: 54px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(56, 189, 248, 0.2); }
@@ -48,7 +47,7 @@
         .badge-prod { background: rgba(244, 63, 94, 0.1); color: var(--neon-rose); border: 1px solid rgba(244, 63, 94, 0.2); }
         
         .code-box { background-color: var(--code-void); border-radius: 10px; padding: 1.5rem; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.875rem; color: #e2e8f0; border: 1px solid rgba(255,255,255,0.05); overflow-x: auto; margin: 1.25rem 0; line-height: 1.6; position: relative; }
-        .code-box::before { content: 'PYTHON / SQL'; position: absolute; top: 0; right: 1rem; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em; font-weight: 800; background: #1f2937; padding: 0.2rem 0.5rem; border-radius: 0 0 4px 4px; }
+        .code-box::before { content: 'CODE LEDGER'; position: absolute; top: 0; right: 1rem; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em; font-weight: 800; background: #1f2937; padding: 0.2rem 0.5rem; border-radius: 0 0 4px 4px; }
 
         .auth-input { width: 100%; background-color: var(--code-void); border: 1px solid var(--glass-border); padding: 0.85rem; border-radius: 10px; color: var(--text-master); font-family: monospace; margin-top: 0.35rem; margin-bottom: 1.25rem; transition: border 0.2s; }
         .auth-input:focus { border-color: var(--neon-sky); outline: none; box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); }
@@ -62,7 +61,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- NAV BAR -->
+    <!-- HEADER BLOCK -->
     <header>
         <div class="header-container">
             <div class="logo-block">
@@ -74,7 +73,7 @@
         </div>
     </header>
 
-    <!-- MODULE 1: INTERACTIVE COURSE TRACK CONTROLLER -->
+    <!-- MODULE 1: TRACK NAVIGATOR -->
     <section class="track-navigator">
         <div id="tab-mcp" class="glass-card track-card active">
             <div class="track-icon"><i data-lucide="terminal"></i></div>
@@ -98,7 +97,9 @@
             </div>
         </div>
     </section>
-        <!-- MAIN GRID CONTAINER -->
+    <!-- ========================================================================== -->
+    <!-- 🏗️ MAIN GRID WORKSPACE CONTAINER (GLASSMORPHISM INTERACTION GRID)          -->
+    <!-- ========================================================================== -->
     <main class="workspace-grid">
         <!-- MODULE 2: INDUSTRIAL TIMELINE ROADMAP CONTENT -->
         <section class="roadmap-container">
@@ -158,65 +159,52 @@
             </div>
         </section>
     </main>
-        <!-- ========================================================================== -->
-    <!-- ⚡ CORE JAVASCRIPT ORCHESTRATION ENGINE (SUPABASE CONNECT MATRIX LATEST)   -->
+    <!-- ========================================================================== -->
+    <!-- ⚡ SECURED JAVASCRIPT CORE ENGINE (V5.0 COMPILER VALIDATED - PART 1)      -->
     <!-- ========================================================================== -->
     <script>
-        // COURSE KNOWLEDGE LEDGER DATA REPOSITORY (FULLY EXPANDED & SANITIZED)
+        // CORE COURSE DATA REPOSITORY (CLEAN REPAIRED RAW STRINGS)
         const courseData = {
-            mcp: `
-                <div class="glass-card mb-6" style="margin-bottom: 1.5rem;">
-                    <div class="step-badge badge-basic">Week 1 | Day 1</div>
-                    <h4 class="text-xl font-bold mb-3 text-slate-100">JSON-RPC 2.0 विनिर्देश और Stdio ट्रांसपोर्ट</h4>
-                    <div class="text-slate-300 text-sm space-y-3">
-                        <p><strong>🎯 कंपनी लाइव काम:</strong> Claude MCP जैसे एआई एजेंट्स के साथ बैकएंड में सीधे Stdio (Standard Input/Output) स्ट्रीम के माध्यम से डेटा पैकेट्स का बिना किसी लेटेंसी के आदान-प्रदान करना।</p>
-                        <p><strong>📖 डीप-डाइव नोट्स:</strong> JSON-RPC 2.0 एक स्टेटलेस RPC प्रोटोकॉल है। इसके मानक पेलोड में <code class="text-amber-400 font-mono">jsonrpc</code> (strictly "2.0"), <code class="text-amber-400 font-mono">method</code>, <code class="text-amber-400 font-mono">params</code>, और <code class="text-amber-400 font-mono">id</code> होना अनिवार्य है।</p>
-                        <div class="code-box">
-import sys, json<br>
-for line in sys.stdin:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;payload = json.loads(line.strip())<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if payload.get("jsonrpc") == "2.0":<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.stdout.write(json.dumps({"id": payload["id"], "result": "Handshake Ok"}) + "\\n")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.stdout.flush()
-                        </div>
-                        <p style="border-left: 3px solid var(--neon-sky); padding-left: 0.75rem;" class="italic text-slate-400"><strong>🔥 भाऊ इंटरव्यू क्रैकर नोड:</strong> यदि पेलोड में 'id' गायब हो, तो उसे 'Notification' माना जाता है और सर्वर उसका कोई जवाब वापस नहीं भेजता!</p>
-                    </div>
-                </div>
-            `,
-            fastapi: `
-                <div class="glass-card mb-6" style="margin-bottom: 1.5rem;">
-                    <div class="step-badge badge-adv">Week 2 | Day 1</div>
-                    <h4 class="text-xl font-bold mb-3 text-slate-100">Asynchronous Event Loops और Non-Blocking Threads</h4>
-                    <div class="text-slate-300 text-sm space-y-3">
-                        <p><strong>🎯 कंपनी लाइव काम:</strong> जब हाई-ट्रैफिक एप्लीकेशंस में एक साथ हजारों एजेंट्स रिक्वेस्ट भेजते हैं, तो सिंक्रोनस कोड सर्वर को चोक कर देता है। यहाँ छात्र सीखेगा कि लेटेंसी को सीधे <code class="text-sky-400 font-mono">0.1117ms</code> के लेज़र ब्रैकेट में कैसे लॉक किया जाता है।</p>
-                        <p><strong>📖 डीप-डाइव नोट्स:</strong> Python का <code class="text-sky-400 font-mono">Asyncio Engine</code> कोऑपरेटिव मल्टीटास्किंग चलाता है। जब कोई network I/O पेंडिंग होता है, तो कोड कंट्रोल को इवेंट लूप को वापस सौंप देता है (<code class="text-amber-400 font-mono">await</code>), जिससे थ्रेड कभी स्टार्वेशन में नहीं जाता।</p>
-                    </div>
-                </div>
-            `,
-            postgres: `
-                <div class="glass-card mb-6" style="margin-bottom: 1.5rem;">
-                    <div class="step-badge badge-prod">Week 3 | Day 1</div>
-                    <h4 class="text-xl font-bold mb-3 text-slate-100">PostgreSQL WAL Architecture & Concurrency Fraud Insulation</h4>
-                    <div class="text-slate-300 text-sm space-y-3">
-                        <p><strong>🎯 कंपनी लाइव काम:</strong> फिनटेक वॉलेट्स में डुप्लिकेट ट्रांजेक्शंस और रेस कंडीशंस (Race Conditions) को पूरी तरह इन्सुलेट करना।</p>
-                        <p><strong>📖 डीप-डाइव नोट्स:</strong> Write-Ahead Logging (WAL) का नियम है कि मुख्य डेटा टेबल्स में बदलाव से पहले एंट्री को अलग लेज़र फ़ाइल में अपेंड किया जाता है। <code class="text-red-400 font-mono">SELECT ... FOR UPDATE</code> क्वेरी रो पर एक कड़ा डिजिटल ताला लगा देती है ताकि समानांतर थ्रेड्स डेटा हैक न कर सकें।</p>
-                    </div>
-                </div>
-            `
+            mcp: '<div class="glass-card mb-6" style="padding:2rem; background:rgba(13,21,39,0.6); border:1px solid rgba(56,189,248,0.2); border-radius:16px;">' +
+                 '<div class="step-badge badge-basic" style="color:#34d399; font-weight:800; text-transform:uppercase; font-size:0.75rem; margin-bottom:1rem;">Week 1 | Day 1</div>' +
+                 '<h4 style="font-size:1.5rem; font-weight:700; margin-bottom:1rem; color:#f8fafc;">JSON-RPC 2.0 विनिर्देश और Stdio ट्रांसपोर्ट</h4>' +
+                 '<p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1rem;"><strong>🎯 कंपनी लाइव काम:</strong> Claude MCP जैसे एआई एजेंट्स के साथ बैकएंड में सीधे Stdio (Standard Input/Output) स्ट्रीम के माध्यम से डेटा पैकेट्स का बिना किसी लेटेंसी के आदान-प्रदान करना।</p>' +
+                 '<p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1rem;"><strong>📖 डीप-डाइव नोट्स:</strong> JSON-RPC 2.0 एक स्टेटलेस RPC प्रोटोकॉल है। इसके मानक पेलोड में jsonrpc ("2.0"), method, params, और id होना अनिवार्य है।</p>' +
+                 '<div style="background:#010409; padding:1rem; border-radius:10px; font-family:monospace; color:#e2e8f0; font-size:0.85rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">' +
+                 'import sys, json<br>for line in sys.stdin:<br>&nbsp;&nbsp;&nbsp;&nbsp;payload = json.loads(line.strip())<br>' +
+                 '&nbsp;&nbsp;&nbsp;&nbsp;if payload.get("jsonrpc") == "2.0":<br>' +
+                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.stdout.write(json.dumps({"id": payload["id"], "result": "Ok"}) + "\\n")' +
+                 '</div>' +
+                 '<p style="color:#38bdf8; font-style:italic; font-size:0.85rem;"><strong>🔥 इंटरव्यू क्रैकर नोड:</strong> यदि पेलोड में id गायब हो, तो उसे Notification माना जाता है और सर्वर उसका कोई जवाब वापस नहीं भेजता!</p>' +
+                 '</div>',
+
+            fastapi: '<div class="glass-card mb-6" style="padding:2rem; background:rgba(13,21,39,0.6); border:1px solid rgba(56,189,248,0.2); border-radius:16px;">' +
+                     '<div class="step-badge badge-adv" style="color:#38bdf8; font-weight:800; text-transform:uppercase; font-size:0.75rem; margin-bottom:1rem;">Week 2 | Day 1</div>' +
+                     '<h4 style="font-size:1.5rem; font-weight:700; margin-bottom:1rem; color:#f8fafc;">Asynchronous Event Loops और Non-Blocking Threads</h4>' +
+                     '<p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1rem;"><strong>🎯 कंपनी लाइव काम:</strong> जब हाई-ट्रैफिक एप्लीकेशंस में एक साथ हजारों एजेंट्स रिक्वेस्ट भेजते हैं, तो सिंक्रोनस कोड सर्वर को चोक कर देता है। यहाँ छात्र सीखेगा कि लेटेंसी को सीधे 0.1117ms के लेज़र ब्रैकेट में कैसे锁 किया जाता है।</p>' +
+                     '<p style="color:#94a3b8; font-size:0.9rem;"><strong>📖 डीप-डाइव नोट्स:</strong> Python का Asyncio Engine कोऑपरेटिव मल्टीटास्किंग चलाता है। जब कोई network I/O पेंडिंग होता, तो कोड कंट्रोल को इवेंट लूप को वापस सौंप देता है (await), जिससे थ्रेड कभी स्टार्वेशन में नहीं जाता।</p>' +
+                     '</div>',
+
+            postgres: '<div class="glass-card mb-6" style="padding:2rem; background:rgba(13,21,39,0.6); border:1px solid rgba(56,189,248,0.2); border-radius:16px;">' +
+                      '<div class="step-badge badge-prod" style="color:#f43f5e; font-weight:800; text-transform:uppercase; font-size:0.75rem; margin-bottom:1rem;">Week 3 | Day 1</div>' +
+                      '<h4 style="font-size:1.5rem; font-weight:700; margin-bottom:1rem; color:#f8fafc;">PostgreSQL WAL Architecture & Concurrency Fraud Insulation</h4>' +
+                      '<p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1rem;"><strong>🎯 कंपनी लाइव काम:</strong> फिनटेक वॉलेट्स में डुप्लिकेट ट्रांजेक्शंस और रेस कंडीशंस (Race Conditions) को पूरी तरह इन्सुलेट करना।</p>' +
+                      '<p style="color:#94a3b8; font-size:0.9rem;"><strong>📖 डीप-डाइव नोट्स:</strong> Write-Ahead Logging (WAL) का नियम है कि मुख्य डेटा टेबल्स में बदलाव से पहले एंट्री को अलग लेज़र फ़ाइल में अपेंड किया जाता है। SELECT ... FOR UPDATE क्वेरी रो पर एक कड़ा डिजिटल ताला लगा देती है ताकि समानांतर थ्रेड्स डेटा हैक न कर सकें।</p>' +
+                      '</div>'
         };
-                // GLOBAL IDENTITY KEY INTERACTION LOGIC (FULLY SECURED IMMUTABLE MATRIX LATEST)
+        // GLOBAL IDENTITY CONFIGURATION
         const SUPABASE_URL = "https://mzdcwglkfnpgvjzggdlj.supabase.co"; 
         const SUPABASE_ANON_KEY = "sb_publishable_rjI9RFI7vYy5QL2sPZTU7w_E9HC1RFV"; 
 
         let supabaseClient = null;
         try {
-            if (typeof supabase !== 'undefined') {
+            if (typeof supabase !== "undefined") {
                 supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-                console.log("🟢 [Supabase Ingress] Cloud Connection Handshake Synchronized.");
+                console.log("🟢 [Supabase Ingress] Synchronized.");
             }
         } catch (e) { console.error("Cloud linkage lag:", e); }
 
-        // ADVANCED STATE MANAGEMENT CONTROLLER (FIXED VARIABLE MISMATCH LOGIC)
+        // DYNAMIC STATE CONFIGURATION SWITCHER
         function switchCourseTrack(trackId) {
             const mcpTab = document.getElementById("tab-mcp");
             const fastapiTab = document.getElementById("tab-fastapi");
@@ -231,29 +219,30 @@ for line in sys.stdin:<br>
             const activeTab = document.getElementById("tab-" + trackId);
             if(activeTab) activeTab.classList.add("active");
             
-            // Fixed the कोटेशन String Interpolation with standard clean code blocks
-            if(roadmapContent) roadmapContent.innerHTML = courseData[trackId];
+            if(roadmapContent && courseData[trackId]) {
+                roadmapContent.innerHTML = courseData[trackId];
+            }
             if(subtitle) {
                 subtitle.textContent = "वर्तमान ट्रैक: " + trackId.toUpperCase() + " इन्फ्रास्ट्रक्चर की मुकम्मल थ्योरी।";
             }
-            
-            lucide.createIcons();
+            if (typeof lucide !== "undefined") lucide.createIcons();
         }
-                // CONTROL NODES LIFECYCLE INITIALIZATION (ANTI-FREEZE ARCHITECTURE)
+
+        // LIFECYCLE INITIALIZATION (ANTI-FREEZE ARCHITECTURE)
         document.addEventListener("DOMContentLoaded", () => {
-            // Render Initial Core State
-            switchCourseTrack('mcp');
+            // Render Default Infrastructure State
+            switchCourseTrack("mcp");
 
             // Wire up explicit event nodes to destroy browser cache freeze blocks
             const mcpNode = document.getElementById("tab-mcp");
             const fastapiNode = document.getElementById("tab-fastapi");
             const postgresNode = document.getElementById("tab-postgres");
 
-            if (mcpNode) mcpNode.addEventListener("click", () => switchCourseTrack('mcp'));
-            if (fastapiNode) fastapiNode.addEventListener("click", () => switchCourseTrack('fastapi'));
-            if (postgresNode) postgresNode.addEventListener("click", () => switchCourseTrack('postgres'));
+            if (mcpNode) mcpNode.addEventListener("click", () => switchCourseTrack("mcp"));
+            if (fastapiNode) fastapiNode.addEventListener("click", () => switchCourseTrack("fastapi"));
+            if (postgresNode) postgresNode.addEventListener("click", () => switchCourseTrack("postgres"));
 
-            // Sandbox compiler execution node wire-up
+            // Sandbox Run Wire-up
             const sandboxBtn = document.getElementById("btn-sandbox-run");
             if (sandboxBtn) {
                 sandboxBtn.addEventListener("click", () => {
@@ -266,7 +255,7 @@ for line in sys.stdin:<br>
                 });
             }
 
-            // Auth signup action node wire-up
+            // Signup Wire-up
             const signupBtn = document.getElementById("btn-signup");
             if (signupBtn) {
                 signupBtn.addEventListener("click", async () => {
@@ -275,18 +264,18 @@ for line in sys.stdin:<br>
                     const statusLog = document.getElementById("auth-status-log");
                     if (!statusLog) return;
                     if (!email || !password) { showLog(statusLog, "🚨 ERROR: Fields cannot be null.", "red"); return; }
-                    showLog(statusLog, "⌛ Provisioning account cluster at remote Supabase PostgreSQL...", "sky");
+                    showLog(statusLog, "⌛ Provisioning account cluster inside Remote Supabase Database...", "sky");
                     if (supabaseClient) {
                         const { data, error } = await supabaseClient.auth.signUp({ email, password });
                         if (error) { showLog(statusLog, `🚨 CLOUD REJECTION: ${error.message}`, "red"); }
-                        else { showLog(statusLog, `✨ SUCCESS: Record established for ${data.user.email}! Verification mail dispatched.`, "emerald"); }
+                        else { showLog(statusLog, `✨ SUCCESS: Record established for ${data.user.email}! Check verification mail.`, "emerald"); }
                     } else {
                         setTimeout(() => { showLog(statusLog, "✨ SUCCESS: User registered inside Local Ledger arrays [Sandbox Mode].", "emerald"); }, 600);
                     }
                 });
             }
 
-            // Auth signin action node wire-up
+            // Login Wire-up
             const loginBtn = document.getElementById("btn-login");
             if (loginBtn) {
                 loginBtn.addEventListener("click", async () => {
@@ -305,8 +294,7 @@ for line in sys.stdin:<br>
                     }
                 });
             }
-
-            lucide.createIcons();
+            if (typeof lucide !== "undefined") lucide.createIcons();
         });
 
         function showLog(element, message, colorShift) {

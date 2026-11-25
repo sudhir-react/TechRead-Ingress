@@ -138,13 +138,23 @@
                 <div id="auth-status-log" class="hidden mt-4 p-3 text-xs rounded-lg font-mono border text-center" style="border-radius: 8px;"></div>
             </div>
 
-            <!-- LIVE SANDBOX TICKET COMPONENT -->
+                        <!-- LIVE SANDBOX TICKET #1094 (INTERACTIVE SLIDER) -->
             <div class="glass-card rounded-xl p-6">
                 <div class="flex items-center gap-2 text-emerald-400 font-bold text-lg mb-4" style="color: var(--neon-emerald);">
                     <i data-lucide="briefcase"></i> Live Company Ticket #1094
                 </div>
                 <h5 class="text-base font-semibold mb-2" style="font-size: 1rem; margin-bottom: 0.5rem;">Task: Starvation Risk Mitigation</h5>
-                <p class="text-slate-400 text-xs mb-4" style="color: var(--text-muted); margin-bottom: 1rem;">**सिचुएशन:** एआई एजेंट लगातार फ़ास्ट रिक्वेस्ट भेज रहा है। सर्वर को क्रैश होने से बचाने के लिए नीचे दिए गए कोड ब्लॉक में रेट-लिमिटर की कंडीशन को टेस्ट कीजिए।</p>
+                <p class="text-slate-400 text-xs mb-4" style="color: var(--text-muted); margin-bottom: 1rem;"><strong>सिचुएशन:</strong> एआई एजेंट लगातार फ़ास्ट रिक्वेस्ट भेज रहा है। नीचे स्लाइडर से <code>current_tokens</code> बदलकर लाइव टेस्ट करें।</p>
+                
+                <!-- Interactive Token Slider -->
+                <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;">
+                        <span style="color: #38bdf8;">Adjust current_tokens:</span>
+                        <span id="token-display" style="background: #010409; color: #34d399; padding: 0.2rem 0.6rem; border-radius: 6px; font-family: monospace;">2.0</span>
+                    </div>
+                    <input type="range" id="token-slider" min="0" max="5" step="0.5" value="2.0" style="width: 100%; cursor: pointer; accent-color: #38bdf8;">
+                </div>
+
                 <div class="code-box">
                     def verify_ingress_clearance(current_tokens):<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;if current_tokens &lt; 1.0:<br>
@@ -155,9 +165,34 @@
                 <button id="btn-sandbox-run" class="verify-btn">
                     <i data-lucide="play-circle"></i> Run Production Tests & Verify Code
                 </button>
-                <div id="sandbox-output" class="hidden mt-4 p-3 text-xs rounded-lg font-mono border text-center" style="border-radius: 8px; background-color: rgba(52, 211, 153, 0.1); color: var(--neon-emerald); border-color: rgba(52, 211, 153, 0.2);"></div>
+                <div id="sandbox-output" class="hidden mt-4 p-3 text-xs rounded-lg font-mono border text-center" style="border-radius: 8px; margin-top: 1rem; padding: 0.75rem;"></div>
+            </div>
+
+            <!-- LIVE SANDBOX TICKET #1095 (MCP JSON-RPC 2.0 ROUTER) -->
+            <div class="glass-card rounded-xl p-6" style="margin-top: 1.5rem;">
+                <div class="flex items-center gap-2 font-bold text-lg mb-4" style="color: var(--neon-sky);">
+                    <i data-lucide="cpu"></i> Live Company Ticket #1095
+                </div>
+                <h5 class="text-base font-semibold mb-2" style="font-size: 1rem; margin-bottom: 0.5rem;">Task: Stateless MCP JSON-RPC 2.0 Stdio Router</h5>
+                <p class="text-xs mb-4" style="color: var(--text-muted); margin-bottom: 1rem;"><strong>सिचुएशन:</strong> AI एजेंट द्वारा भेजे गए JSON-RPC 2.0 पेलोड को चुनें और लाइव सर्वर रिस्पॉन्स टेस्ट करें।</p>
+                
+                <select id="mcp-method-select" class="auth-input" style="margin-bottom: 0.75rem;">
+                    <option value="tools/list">Method: tools/list (id: 101)</option>
+                    <option value="tools/call">Method: tools/call -> get_system_health (id: 102)</option>
+                    <option value="notification">Notification: notifications/initialized (No id)</option>
+                </select>
+
+                <div id="mcp-request-preview" class="code-box" style="font-size: 0.78rem; margin-top: 0.5rem;">
+                    {"jsonrpc": "2.0", "id": 101, "method": "tools/list", "params": {}}
+                </div>
+
+                <button id="btn-mcp-run" class="verify-btn" style="background: linear-gradient(135deg, #38bdf8, #0284c7);">
+                    <i data-lucide="send"></i> Dispatch JSON-RPC Packet
+                </button>
+                <div id="mcp-output" class="hidden mt-4 p-3 text-xs rounded-lg font-mono border" style="border-radius: 8px; margin-top: 1rem; padding: 0.75rem; background-color: #010409; color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); white-space: pre-wrap;"></div>
             </div>
         </section>
+
     </main>
     <!-- ========================================================================== -->
     <!-- ⚡ SECURED JAVASCRIPT CORE ENGINE (V5.0 COMPILER VALIDATED - PART 1)      -->
@@ -242,18 +277,79 @@
             if (fastapiNode) fastapiNode.addEventListener("click", () => switchCourseTrack("fastapi"));
             if (postgresNode) postgresNode.addEventListener("click", () => switchCourseTrack("postgres"));
 
-            // Sandbox Run Wire-up
+                        // Sandbox Run & Token Slider Wire-up (Ticket #1094)
+            const tokenSlider = document.getElementById("token-slider");
+            const tokenDisplay = document.getElementById("token-display");
+            if (tokenSlider && tokenDisplay) {
+                tokenSlider.addEventListener("input", () => {
+                    const val = parseFloat(tokenSlider.value).toFixed(1);
+                    tokenDisplay.textContent = val;
+                    tokenDisplay.style.color = parseFloat(val) < 1.0 ? "#f43f5e" : "#34d399";
+                });
+            }
+
             const sandboxBtn = document.getElementById("btn-sandbox-run");
             if (sandboxBtn) {
                 sandboxBtn.addEventListener("click", () => {
                     const out = document.getElementById("sandbox-output");
+                    const tokens = tokenSlider ? parseFloat(tokenSlider.value) : 2.0;
                     if (out) {
-                        out.classList.remove("hidden"); 
-                        out.textContent = "⌛ Running syntax tree sweeps...";
-                        setTimeout(() => { out.textContent = "✨ SUCCESS: 4/4 Unit Tests Passed! [Rate Limiter Insulated]"; }, 900);
+                        out.style.display = "block";
+                        out.classList.remove("hidden");
+                        out.style.backgroundColor = "rgba(56, 189, 248, 0.1)";
+                        out.style.color = "#38bdf8";
+                        out.textContent = "⌛ Evaluating verify_ingress_clearance(" + tokens.toFixed(1) + ")...";
+                        setTimeout(() => {
+                            if (tokens < 1.0) {
+                                out.style.backgroundColor = "rgba(244, 63, 94, 0.12)";
+                                out.style.color = "#f43f5e";
+                                out.style.borderColor = "rgba(244, 63, 94, 0.3)";
+                                out.textContent = "🚨 HTTP 429 Too Many Requests [Blocked at Edge | Tokens: " + tokens.toFixed(1) + "]";
+                            } else {
+                                const rem = (tokens - 1.0).toFixed(1);
+                                out.style.backgroundColor = "rgba(52, 211, 153, 0.12)";
+                                out.style.color = "#34d399";
+                                out.style.borderColor = "rgba(52, 211, 153, 0.3)";
+                                out.textContent = "🟢 Ingress Pass [Allowed | Remaining Tokens: " + rem + "]";
+                            }
+                        }, 300);
                     }
                 });
             }
+
+            // MCP JSON-RPC 2.0 Router Wire-up (Ticket #1095)
+            const mcpSelect = document.getElementById("mcp-method-select");
+            const mcpPreview = document.getElementById("mcp-request-preview");
+            const mcpPayloads = {
+                "tools/list": '{"jsonrpc": "2.0", "id": 101, "method": "tools/list", "params": {}}',
+                "tools/call": '{"jsonrpc": "2.0", "id": 102, "method": "tools/call", "params": {"name": "get_system_health"}}',
+                "notification": '{"jsonrpc": "2.0", "method": "notifications/initialized"}'
+            };
+            if (mcpSelect && mcpPreview) {
+                mcpSelect.addEventListener("change", () => {
+                    mcpPreview.textContent = mcpPayloads[mcpSelect.value];
+                });
+            }
+
+            const mcpBtn = document.getElementById("btn-mcp-run");
+            if (mcpBtn) {
+                mcpBtn.addEventListener("click", () => {
+                    const out = document.getElementById("mcp-output");
+                    const mode = mcpSelect ? mcpSelect.value : "tools/list";
+                    if (out) {
+                        out.style.display = "block";
+                        out.classList.remove("hidden");
+                        if (mode === "tools/list") {
+                            out.textContent = '⬅️ Stdio Out (0.42ms):\n{"jsonrpc":"2.0","id":101,"result":{"tools":[{"name":"get_system_health"}]}}';
+                        } else if (mode === "tools/call") {
+                            out.textContent = '⬅️ Stdio Out (0.38ms):\n{"jsonrpc":"2.0","id":102,"result":{"status":"HEALTHY","latency_ms":0.11}}';
+                        } else {
+                            out.textContent = '🔇 Stdio Out: [204 No Content] — Notification had no "id", so server returned zero bytes.';
+                        }
+                    }
+                });
+            }
+
 
             // Signup Wire-up
             const signupBtn = document.getElementById("btn-signup");
